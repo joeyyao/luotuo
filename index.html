@@ -80,6 +80,9 @@
     var channelId;
     var publisherList = [];
     var aliWebrtc;
+
+    var userName = Math.random().toString(36).replace(/[^a-z]+/g, "").substr(0, 5);
+
     aliWebrtc = new AliRtcEngine();
     /**
      * AliWebRTC isSupport检测
@@ -593,17 +596,17 @@
      */ 
     $(".main-button button").click(() => {
         var value = $(".main-input input").val();
-        var username= $(".name-input input").val();
+        userName= $(".name-input input").val();
         if(!value){
             showAlert("请输入房间号","danger");
             return
         }
         if(!aliWebrtc){
             showAlert("isSupport失败,未能初始化aliWebrtc","danger");
-            return
+            returnN
         }
         channelId = value;
-        joinroom(username);
+        joinroom(userName);
         $(".login").hide();
         $(".main-web").show();
     })
