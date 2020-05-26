@@ -57,7 +57,7 @@ function setConfigRemote(userId, type, label){
         }
     aliWebrtc.subscribe(userId).then(re => {
         resolve();
-        }).catch(err => { console.error("重新订阅失败", err); alert(err.message); })
+        }).catch(err => { console.log("重新订阅失败", err); alert(err.message); })
     });
 }
 
@@ -75,7 +75,7 @@ function showAlert(text,type,delay) {
     if(_type === "warning"){
         console.warn(text)
     }else if(_type === "danger"){
-        console.error(text)
+        console.log(text)
     }else {
         console.log(text)
     }
